@@ -5,6 +5,7 @@ name: CI
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
+  push:
   pull_request:
     branches: [ main ]
 
@@ -18,27 +19,27 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - name: Checkout Repository 
+      - name: Checkout Repository
         uses: actions/checkout@v2
-      
+
       # set node version
       - uses: actions/setup-node@v2
         with:
           node-version: '14'
-      
+
       # install dependencies
       - name: Install Dependencies
         run: yarn install
-        
+
       # linting
       - name: Linting
         run: yarn lint
-      
+
       # testing
       - name: Testing
         run: yarn test
-        
+
       # build
       - name: Build
         run: yarn build
-     
+
