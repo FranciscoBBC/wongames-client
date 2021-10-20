@@ -1,6 +1,7 @@
 import { screen } from '@testing-library/react'
 import { renderWithTheme } from 'utils/tests/helpers'
 import Logo from '.'
+import 'jest-styled-components'
 
 describe('<Logo />', () => {
   it('should render a white label by default', () => {
@@ -10,6 +11,7 @@ describe('<Logo />', () => {
       color: '#FAFAFA'
     })
   })
+
   it('should render a black label when color is passed', () => {
     renderWithTheme(<Logo color="black" />)
 
@@ -17,6 +19,7 @@ describe('<Logo />', () => {
       color: '#030517'
     })
   })
+
   it('should render a big logo', () => {
     renderWithTheme(<Logo size="large" />)
 
@@ -24,11 +27,24 @@ describe('<Logo />', () => {
       width: '20rem'
     })
   })
+
   it('should render a normal logo when size is default', () => {
     renderWithTheme(<Logo />)
 
     expect(screen.getByLabelText(/Won Games/i).parentElement).toHaveStyle({
       width: '11rem'
     })
+  })
+
+  it('should render a bigger logo without text if hideOnMobile', () => {
+    renderWithTheme(<Logo hideOnMobile />)
+
+    expect(screen.getByLabelText(/Won Games/i).parentElement).toHaveStyleRule(
+      'width',
+      '5.8rem',
+      {
+        media: '(max-width: 768px)'
+      }
+    )
   })
 })
