@@ -16,4 +16,20 @@ export default {
   }
 } as Meta
 
-export const basic: Story<BannerProps> = (args) => <Banner {...args} />
+export const basic: Story<BannerProps> = (args) => (
+  <div style={{ maxWidth: '104rem', margin: '0 auto' }}>
+    <Banner {...args} />
+  </div>
+)
+
+export const withRibbon: Story<BannerProps> = (args) => (
+  <div style={{ maxWidth: '104rem' }}>
+    <Banner {...args} />
+  </div>
+)
+
+withRibbon.args = {
+  ribbon: '20% off',
+  ribbonSize: 'small',
+  ribbonColor: 'primary'
+}
