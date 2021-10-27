@@ -13,4 +13,18 @@ export default {
   }
 } as Meta
 
-export const basic: Story<HighlightProps> = (args) => <Highlight {...args} />
+export const basic: Story<HighlightProps> = (args) => (
+  <div style={{ maxWidth: '104rem' }}>
+    <Highlight {...args} />
+  </div>
+)
+
+export const WithFloatImage: Story<HighlightProps> = (args) => (
+  <div style={{ maxWidth: '104rem' }}>
+    <Highlight {...args} />
+  </div>
+)
+
+WithFloatImage.args = {
+  floatImage: '/icon-512.png'
+}
