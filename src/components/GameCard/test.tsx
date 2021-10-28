@@ -31,4 +31,32 @@ describe('<GameCard />', () => {
 
     expect(screen.getByLabelText(/add to wishlist/i)).toBeInTheDocument()
   })
+
+  it('should render a normal price', () => {
+    renderWithTheme(<GameCard {...props} />)
+
+    expect(screen.getByText(/R\$ 235,00/i)).toHaveStyle({
+      backgroundColor: '#3CD3C1'
+    })
+    expect(screen.getByText(/R\$ 235,00/i)).not.toHaveStyle({
+      'text-decoration': 'line-through'
+    })
+  })
+
+  it('should render a promotional price', () => {
+    renderWithTheme(<GameCard {...props} promotionalPrice="R$ 200,00" />)
+
+    // velho
+    const oldPrice = screen.getByText(/R\$ 235,00/i)
+    expect(oldPrice).toHaveStyle({
+      'text-decoration': 'line-through'
+    })
+    expect(oldPrice).toHaveStyle({
+      color: '#8F8F8F'
+    })
+
+    const newPrice = screen.getByText(/R\$ 200,00/i)
+    expect(newPrice).not.toHaveStyle({ 'text-decoration': 'line-through' })
+    expect(newPrice).toHaveStyle({ backgroundColor: '#3CD3C1' })
+  })
 })

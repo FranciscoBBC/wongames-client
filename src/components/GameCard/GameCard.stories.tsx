@@ -8,7 +8,8 @@ export default {
     title: 'teste de titulo',
     developer: 'Rockstar Games',
     img: '/background_highlight.jpg',
-    price: 'R$ 235,00'
+    price: 'R$ 235,00',
+    promotionalPrice: 'R$ 200,00'
   }
 } as Meta
 
