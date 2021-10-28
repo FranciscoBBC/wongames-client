@@ -6,6 +6,7 @@ import {
 import Button from 'components/Button'
 import React from 'react'
 import * as S from './styles'
+import Ribbon, { RibbonColor, RibbonSizes } from 'components/Ribbon'
 
 export type GameCardProps = {
   title: string
@@ -15,6 +16,9 @@ export type GameCardProps = {
   promotionalPrice?: string
   favorite?: boolean
   onFav?: () => void
+  ribbon?: string
+  ribbonColor?: RibbonColor
+  ribbonSize?: RibbonSizes
 }
 
 const GameCard = ({
@@ -24,10 +28,18 @@ const GameCard = ({
   price,
   promotionalPrice,
   favorite = false,
-  onFav
+  onFav,
+  ribbon,
+  ribbonColor,
+  ribbonSize
 }: GameCardProps) => {
   return (
     <S.Wrapper>
+      {!!ribbon && (
+        <Ribbon size={ribbonSize} color={ribbonColor}>
+          {ribbon}
+        </Ribbon>
+      )}
       <S.ImageBox>
         <img src={img} alt={title} />
       </S.ImageBox>
