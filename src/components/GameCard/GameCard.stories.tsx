@@ -9,7 +9,11 @@ export default {
     developer: 'Rockstar Games',
     img: '/background_highlight.jpg',
     price: 'R$ 235,00',
-    promotionalPrice: 'R$ 200,00'
+    promotionalPrice: 'R$ 200,00',
+    favorite: false
+  },
+  argTypes: {
+    onFav: { action: 'clicked' }
   }
 } as Meta
 
