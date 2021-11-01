@@ -9,13 +9,13 @@ function App({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider theme={theme}>
       <Head>
-        <title>React avançado boilerplate</title>
+        <title>Won Games</title>
         <link rel="shortcut icon" href="icon-512.png" />
         <link rel="apple-touch-icon" href="icon-512.png" />
         <link rel="manifest" href="/manifest.json" />
         <meta
           name="description"
-          content="boilerplate do curso react avançado com Willian Justen"
+          content="the bast game store in the world"
         ></meta>
       </Head>
       <GlobalStyles />
