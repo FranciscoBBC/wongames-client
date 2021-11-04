@@ -35,6 +35,10 @@ jobs:
       - name: Linting
         run: yarn lint
 
+      # typecheck
+      - name: Typecheck
+        run: yarn typecheck
+
       # testing
       - name: Testing
         run: yarn test
