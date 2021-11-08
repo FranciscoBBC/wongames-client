@@ -14,7 +14,7 @@ const Checkbox = ({
 }: CheckboxProps) => {
   return (
     <S.Wrapper>
-      <input type="checkbox" id={labelFor} />
+      <S.Input type="checkbox" id={labelFor} />
       {!!labelFor && (
         <S.Label htmlFor={labelFor} labelColor={labelColor}>
           {label}
